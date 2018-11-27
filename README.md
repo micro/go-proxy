@@ -12,13 +12,13 @@ want to run and manage separately e.g auth, tracing, rate limiting, etc.
 
 The go-proxy framework let's us create proxied versions of go-micro services.
 
-- Consul Connect
+- **Consul Connect** native Go Micro services
 
 ## Usage
 
 ### Server
 
-Create a micro service using Consul Connect
+Create a Consul Connect native micro service.
 
 ```go
 import (
