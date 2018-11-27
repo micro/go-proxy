@@ -8,11 +8,17 @@ There are situations where we're running dozens if not hundreds of unique micro 
 While go-micro gives us a useful framework for writing those applications, certain aspects we may 
 want to run and manage separately e.g auth, tracing, rate limiting, etc.
 
-## Supported
-
 The go-proxy framework let's us create proxied versions of go-micro services.
 
+## Supported
+
 - **Consul Connect** native Go Micro services
+
+Contributions welcome for:
+
+- Istio
+- Linkerd
+- ?
 
 ## Usage
 
