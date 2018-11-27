@@ -8,7 +8,7 @@ There are situations where we're running dozens if not hundreds of unique micro 
 While go-micro gives us a useful framework for writing those applications, certain aspects we may 
 want to run and manage separately e.g auth, tracing, rate limiting, etc.
 
-The go-proxy framework let's us create proxied versions of go-micro services.
+The go-proxy library let's us create proxied versions of go-micro services.
 
 ## Supported
 
