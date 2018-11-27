@@ -1,14 +1,14 @@
 # Go Proxy [![License](https://img.shields.io/:license-apache-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GoDoc](https://godoc.org/github.com/micro/go-proxy?status.svg)](https://godoc.org/github.com/micro/go-proxy)
 
-The go-proxy library provides proxy enabled micro services.
+Go Proxy provides the ability to create proxy aware Go Micro services.
 
 ## Overview
 
-There are situations where we're running dozens if not hundreds of unique micro service applications. 
-While go-micro gives us a useful framework for writing those applications, certain aspects we may 
-want to run and manage separately e.g auth, tracing, rate limiting, etc.
+Go Micro is a distributed systems framework for client/server communication. It handles the details 
+around discovery, fault tolerance, etc as a library but this may not make sense at scale. The Go Proxy 
+library enables handing off these concerns to a proxy or "service mesh".
 
-The go-proxy library let's us create proxied versions of go-micro services.
+Go Proxy let's us create proxied versions of Go Micro services.
 
 ## Supported
 
@@ -50,4 +50,3 @@ service := connect.NewService()
 // now use the client
 greeter := proto.NewGreeterService("greeter", service.Client())
 ```
-
