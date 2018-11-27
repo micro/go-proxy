@@ -1,4 +1,4 @@
-// Package connect provides Consul Connect Native micro service
+// Package connect provides Consul Connect-Native micro service
 package connect
 
 import (
@@ -65,7 +65,7 @@ func (p *proxyService) String() string {
 	return "connect"
 }
 
-// NewService returns a Consul Connect enabled micro.Service
+// NewService returns a Consul Connect-Native micro.Service
 func NewService(opts ...micro.Option) micro.Service {
 	return newService(opts...)
 }
