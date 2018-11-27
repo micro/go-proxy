@@ -12,7 +12,7 @@ The go-proxy library let's us create proxied versions of go-micro services.
 
 ## Supported
 
-- [x] **Consul Connect-Native** Go Micro services
+- [x] [Consul Connect-Native](https://www.consul.io/docs/connect/native.html) Go Micro services
 - [ ] Istio
 - [ ] Linkerd
 - [ ] ?
