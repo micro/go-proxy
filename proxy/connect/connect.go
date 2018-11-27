@@ -1,4 +1,4 @@
-// Package connect provides a connect proxy for micro services
+// Package connect provides a Consul Connect proxied micro service
 package connect
 
 import (
