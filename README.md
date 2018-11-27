@@ -44,6 +44,5 @@ service := connect.NewService()
 
 // now use the client
 greeter := proto.NewGreeterService("greeter", service.Client())
-}
 ```
 
