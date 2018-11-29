@@ -7,6 +7,7 @@ import (
 	"github.com/hashicorp/consul/api"
 	"github.com/hashicorp/consul/connect"
 	"github.com/micro/go-micro"
+	"github.com/micro/go-micro/broker"
 	"github.com/micro/go-micro/registry/consul"
 	"github.com/micro/go-micro/transport"
 )
@@ -49,9 +50,14 @@ func newService(opts ...micro.Option) micro.Service {
 		log.Fatal(err)
 	}
 
-	// setup connect tls config
+	// setup transport tls config
 	service.Options().Transport.Init(
 		transport.TLSConfig(svc.ServerTLSConfig()),
+	)
+
+	// setup broker tls config
+	service.Options().Broker.Init(
+		broker.TLSConfig(svc.ServerTLSConfig()),
 	)
 
 	// return a new proxy enabled service
