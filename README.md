@@ -16,7 +16,6 @@ Go Proxy let's us create proxied versions of Go Micro services.
 - [x] [NATS](https://nats.io/)
 - [ ] Istio
 - [ ] Linkerd
-
 - [ ] ?
 
 Contributions welcome!
