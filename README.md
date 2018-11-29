@@ -12,9 +12,11 @@ Go Proxy let's us create proxied versions of Go Micro services.
 
 ## Supported
 
-- [x] [Consul Connect-Native](https://www.consul.io/docs/connect/native.html) Go Micro services
+- [x] [Consul Connect-Native](https://www.consul.io/docs/connect/native.html)
+- [x] [NATS](https://nats.io/)
 - [ ] Istio
 - [ ] Linkerd
+
 - [ ] ?
 
 Contributions welcome!
