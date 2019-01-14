@@ -5,10 +5,10 @@ Transparently proxy Go Micro apps
 ## Run Proxy
 
 ```
-// run the proxy
+# run the proxy
 go run proxy/main.go --server_address=":8081"
 
-// run the greeter
+# run the greeter
 go run greeter/main.go
 ```
 
