@@ -33,7 +33,7 @@ Create a Consul Connect-Native micro service.
 ```go
 import (
 	"github.com/micro/go-micro"
-	"github.com/micro/go-proxy/micro/consul"
+	"github.com/micro/go-proxy/service/consul"
 )
 
 // Create a Consul Connect service
@@ -46,7 +46,7 @@ service := consul.NewService(
 
 ```go
 import (
-	"github.com/micro/go-proxy/micro/consul"
+	"github.com/micro/go-proxy/service/consul"
 )
 
 // create a new consul enabled service
