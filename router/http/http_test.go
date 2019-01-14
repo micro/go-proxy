@@ -10,7 +10,7 @@ import (
 
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/client"
-	"github.com/micro/go-micro/registry/mock"
+	"github.com/micro/go-micro/registry/memory"
 	"github.com/micro/go-micro/server"
 )
 
@@ -59,7 +59,7 @@ func TestHTTPRouter(t *testing.T) {
 	service := micro.NewService(
 		micro.Context(ctx),
 		micro.Name("foobar"),
-		micro.Registry(mock.NewRegistry()),
+		micro.Registry(memory.NewRegistry()),
 		micro.AfterStart(func() error {
 			wg.Done()
 			return nil

@@ -1,4 +1,4 @@
-// Package http provides a micro to http proxy
+// Package http provides a micro rpc to http proxy
 package http
 
 import (
