@@ -19,8 +19,8 @@ allows you to set a router which serves your protocol.
 
 ## Supported
 
-- [x] [Consul](https://www.consul.io/docs/connect/native.html)
-- [x] [NATS](https://nats.io/)
+- [x] [Consul](https://www.consul.io/docs/connect/native.html) - Using Connect-Native to provide secure mTLS.
+- [x] [NATS](https://nats.io/) - Fully leveraging NATS as the control plane and data plane.
 
 Contributions welcome!
 
