@@ -217,9 +217,11 @@ func NewSingleHostRouter(url string) *Router {
 //
 func NewService(opts ...micro.Option) micro.Service {
 	router := DefaultRouter
+	name := DefaultName
 
 	// prepend router to opts
 	opts = append([]micro.Option{
+		micro.Name(name),
 		WithRouter(router),
 	}, opts...)
 
@@ -227,8 +229,7 @@ func NewService(opts ...micro.Option) micro.Service {
 	service := micro.NewService(opts...)
 
 	// set router name
-	name := service.Server().Options().Name
-	router.Name = name
+	router.Name = service.Server().Options().Name
 
 	return service
 }

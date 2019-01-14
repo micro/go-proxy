@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	proto "github.com/micro/go-proxy/examples/proxy/greeter/proto"
 	"github.com/micro/go-micro"
+	proto "github.com/micro/go-proxy/examples/proxy/greeter/proto"
 
 	"context"
 )
