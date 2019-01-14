@@ -1,19 +1,17 @@
 # Go Proxy [![License](https://img.shields.io/:license-apache-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GoDoc](https://godoc.org/github.com/micro/go-proxy?status.svg)](https://godoc.org/github.com/micro/go-proxy)
 
-Go Proxy provides the ability to create proxy aware Go Micro services.
+Go Proxy is a library for creating micro proxies.
 
 ## Overview
 
 Go Micro is a distributed systems framework for client/server communication. It handles the details 
-around discovery, fault tolerance, etc as a library but this may not make sense at scale. The Go Proxy 
-library enables handing off these concerns to a proxy or "service mesh".
-
-Go Proxy let's us create proxied versions of Go Micro services.
+around discovery, fault tolerance, etc. We may want to leverage this in broader ecosystems that use 
+standard http or offload a number of requirements.
 
 ## Features
 
 - **Single Backend Router** - Enable the single backend router to proxy directly to your local app. The proxy 
-allows you to set a router which serves your protocol.
+allows you to set a router which serves your protocol e.g. http, grpc.
 
 - **Protocol Aware Handler** - Set a request handler which speaks your protocol to make outbound RPC requests.
 
