@@ -20,6 +20,6 @@ allows you to set a router which serves your backend service whether its http, g
 Your app may not speak the MUCP protocol so it may be easier to translate internally.
 
 - **Control Planes** - Additionally we support use of control planes to offload many distributed systems concerns.
- * [x] [Consul](https://www.consul.io/docs/connect/native.html) - Using Connect-Native to provide secure mTLS.
- * [x] [NATS](https://nats.io/) - Fully leveraging NATS as the control plane and data plane.
+  * [x] [Consul](https://www.consul.io/docs/connect/native.html) - Using Connect-Native to provide secure mTLS.
+  * [x] [NATS](https://nats.io/) - Fully leveraging NATS as the control plane and data plane.
 
