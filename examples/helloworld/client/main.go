@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	proto "github.com/micro/examples/helloworld/proto"
-	"github.com/micro/go-proxy/service/consul"
+	"github.com/micro/go-proxy/control/consul"
 )
 
 func main() {

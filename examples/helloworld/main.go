@@ -6,7 +6,7 @@ import (
 
 	proto "github.com/micro/examples/helloworld/proto"
 	"github.com/micro/go-micro"
-	"github.com/micro/go-proxy/service/consul"
+	"github.com/micro/go-proxy/control/consul"
 )
 
 type Greeter struct{}
