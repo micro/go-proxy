@@ -10,13 +10,17 @@ library enables handing off these concerns to a proxy or "service mesh".
 
 Go Proxy let's us create proxied versions of Go Micro services.
 
+## Features
+
+- **Single Backend Router** - Enable the single backend router to proxy directly to your local app. The proxy 
+allows you to set a router which serves your protocol.
+
+- **Protocol Aware Handler** - Set a request handler which speaks your protocol to make outbound RPC requests.
+
 ## Supported
 
-- [x] [Consul Connect-Native](https://www.consul.io/docs/connect/native.html)
+- [x] [Consul](https://www.consul.io/docs/connect/native.html)
 - [x] [NATS](https://nats.io/)
-- [ ] Istio
-- [ ] Linkerd
-- [ ] ?
 
 Contributions welcome!
 
@@ -29,11 +33,11 @@ Create a Consul Connect-Native micro service.
 ```go
 import (
 	"github.com/micro/go-micro"
-	"github.com/micro/go-proxy/micro/connect"
+	"github.com/micro/go-proxy/micro/consul"
 )
 
 // Create a Consul Connect service
-service := connect.NewService(
+service := consul.NewService(
 	micro.Service("greeter"),
 )
 ```
@@ -42,11 +46,11 @@ service := connect.NewService(
 
 ```go
 import (
-	"github.com/micro/go-proxy/micro/connect"
+	"github.com/micro/go-proxy/micro/consul"
 )
 
-// create a new connect enabled service
-service := connect.NewService()
+// create a new consul enabled service
+service := consul.NewService()
 
 // now use the client
 greeter := proto.NewGreeterService("greeter", service.Client())

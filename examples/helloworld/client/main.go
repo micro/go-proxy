@@ -5,12 +5,12 @@ import (
 	"fmt"
 
 	proto "github.com/micro/examples/helloworld/proto"
-	"github.com/micro/go-proxy/micro/connect"
+	"github.com/micro/go-proxy/service/consul"
 )
 
 func main() {
 	// create a new connect enabled service
-	service := connect.NewService()
+	service := consul.NewService()
 	// create the greeter service client
 	greeter := proto.NewGreeterService("greeter", service.Client())
 

@@ -6,7 +6,7 @@ import (
 
 	proto "github.com/micro/examples/helloworld/proto"
 	"github.com/micro/go-micro"
-	"github.com/micro/go-proxy/micro/connect"
+	"github.com/micro/go-proxy/service/consul"
 )
 
 type Greeter struct{}
@@ -18,7 +18,7 @@ func (g *Greeter) Hello(ctx context.Context, req *proto.HelloRequest, rsp *proto
 
 func main() {
 	// create a new connect enabled service
-	service := connect.NewService(
+	service := consul.NewService(
 		micro.Name("greeter"),
 	)
 
