@@ -1,4 +1,4 @@
-// Package nats provides a NATS proxied Go Micro service
+// Package nats provides a NATS control plane
 package nats
 
 import (

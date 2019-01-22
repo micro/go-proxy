@@ -1,4 +1,4 @@
-// Package consul provides Consul Connect-Native micro service
+// Package consul provides Consul Connect control plane
 package consul
 
 import (
