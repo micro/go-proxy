@@ -19,8 +19,8 @@ Proxy the request
 ```
 curl \
 -H 'Content-Type: application/json' \
--H 'X-Micro-Service: greeter' \
--H 'X-Micro-Endpoint: Greeter.Hello' \
+-H 'Micro-Service: greeter' \
+-H 'Micro-Endpoint: Greeter.Hello' \
 -d '{"name": "John"}' \
 http://localhost:8081
 ```

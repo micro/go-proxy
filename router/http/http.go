@@ -29,6 +29,23 @@ var (
 	DefaultRouter = &Router{}
 )
 
+func getMethod(hdr map[string]string) string {
+	switch method := hdr["Micro-Method"] {
+	case "GET", "HEAD", "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "TRACE", "PATCH":
+		return method
+	default:
+		return "POST"
+	}
+}
+
+func getEndpoint(hdr map[string]string) string {
+	ep := hdr["Micro-Endpoint"]
+	if len(ep) > 0 && ep[0] == '/' {
+		return ep
+	}
+	return ""
+}
+
 // ServeRequest honours the server.Router interface
 func (p *Router) ServeRequest(ctx context.Context, req server.Request, rsp server.Response) error {
 	if p.Backend == "" {
@@ -45,14 +62,33 @@ func (p *Router) ServeRequest(ctx context.Context, req server.Request, rsp serve
 			return err
 		}
 
-		// post to backend
-		hreq, err := http.NewRequest("POST", p.Backend, bytes.NewReader(body))
+		// get the header
+		hdr := req.Header()
+
+		// get method
+		method := getMethod(hdr)
+
+		// get endpoint
+		endpoint := getEndpoint(hdr)
+
+		// set the endpoint
+		if len(endpoint) == 0 {
+			endpoint = p.Backend
+		} else {
+			// add endpoint to backend
+			u, err := url.Parse(p.Backend)
+			if err != nil {
+				return errors.InternalServerError(req.Service(), err.Error())
+			}
+			u.Path = path.Join(u.Path, endpoint)
+			endpoint = u.String()
+		}
+
+		// send to backend
+		hreq, err := http.NewRequest(method, endpoint, bytes.NewReader(body))
 		if err != nil {
 			return errors.InternalServerError(req.Service(), err.Error())
 		}
-
-		// get the header
-		hdr := req.Header()
 
 		// set the headers
 		for k, v := range hdr {
