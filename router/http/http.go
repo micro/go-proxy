@@ -7,6 +7,8 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"net/url"
+	"path"
 
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/errors"
@@ -30,9 +32,9 @@ var (
 )
 
 func getMethod(hdr map[string]string) string {
-	switch method := hdr["Micro-Method"] {
+	switch hdr["Micro-Method"] {
 	case "GET", "HEAD", "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "TRACE", "PATCH":
-		return method
+		return hdr["Micro-Method"]
 	default:
 		return "POST"
 	}
