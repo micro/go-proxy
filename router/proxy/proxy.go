@@ -3,13 +3,13 @@ package proxy
 
 import (
 	"context"
-	"fmt"
 	"io"
 	"strings"
 
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/codec"
+	"github.com/micro/go-micro/codec/bytes"
 	"github.com/micro/go-micro/server"
 )
 
@@ -44,7 +44,7 @@ var (
 // read client request and write to server
 func readLoop(r server.Request, s client.Stream) error {
 	// request to backend server
-	rsp := s.Request()
+	req := s.Request()
 
 	for {
 		// get data from client
@@ -59,14 +59,14 @@ func readLoop(r server.Request, s client.Stream) error {
 
 		// get the header from client
 		hdr := r.Header()
-
-		// write the raw request to backend
-		if err := rsp.Codec().Write(
-			&codec.Message{
-				Type:   codec.Request,
-				Header: hdr,
-				Body:   body,
-			}, nil); err == io.EOF {
+		msg := &codec.Message{
+			Type:   codec.Request,
+			Header: hdr,
+			Body:   body,
+		}
+		// write the raw request
+		err = req.Codec().Write(msg, nil)
+		if err == io.EOF {
 			return nil
 		} else if err != nil {
 			return err
@@ -121,7 +121,7 @@ func (p *Router) ServeRequest(ctx context.Context, req server.Request, rsp serve
 	}
 
 	// create new request with raw bytes body
-	creq := p.Client.NewRequest(service, endpoint, body, client.WithContentType(req.ContentType()))
+	creq := p.Client.NewRequest(service, endpoint, &bytes.Frame{body}, client.WithContentType(req.ContentType()))
 
 	// create new stream
 	stream, err := p.Client.Stream(ctx, creq, opts...)
@@ -141,7 +141,6 @@ func (p *Router) ServeRequest(ctx context.Context, req server.Request, rsp serve
 		// read backend response body
 		body, err := resp.Read()
 		if err == io.EOF {
-			fmt.Println("fucking exit")
 			return nil
 		} else if err != nil {
 			return err
