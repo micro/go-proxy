@@ -1,4 +1,4 @@
-package proxy
+package mucp
 
 import (
 	"github.com/micro/go-micro"

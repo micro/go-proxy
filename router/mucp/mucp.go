@@ -1,5 +1,5 @@
-// Package proxy transparently forwards the incoming request using a go-micro client.
-package proxy
+// Package mucp transparently forwards the incoming request using a go-micro client.
+package mucp
 
 import (
 	"context"
